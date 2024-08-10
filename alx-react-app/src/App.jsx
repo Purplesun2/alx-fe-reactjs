@@ -1,4 +1,7 @@
-import WelcomeMessage from './components/WelcomeMessage';
+// src/App.jsx
+import Header from './components/Header';
+import MainContent from './components/MainContent';
+import Footer from './components/Footer';
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
@@ -9,18 +12,20 @@ function App() {
 
   return (
     <>
+      <Header />
+      <MainContent />
+      <Footer />
       <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
+        <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
+        <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
       <h1>Welcome</h1>
-      <WelcomeMessage />  {/* Include the WelcomeMessage component here */}
       <div className="card">
-        <button onClick={() => setCount(count + 1)}>
+        <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <p>
