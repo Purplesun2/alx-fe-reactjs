@@ -1,20 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import required components
 import RecipeList from './components/RecipeList';
-import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
-import SearchBar from './components/SearchBar';
+import AddRecipeForm from './components/AddRecipeForm';
+import SearchBar from './components/SearchBar'; // Ensure to import SearchBar if used
 
 const App = () => {
   return (
     <Router>
       <div>
-        <h1>Recipe Sharing Application</h1>
-        <SearchBar />
+        <SearchBar /> {/* Ensure SearchBar is used if needed */}
         <Routes>
           <Route path="/" element={<RecipeList />} />
+          <Route path="/recipes/:id" element={<RecipeDetails />} />
           <Route path="/add" element={<AddRecipeForm />} />
-          <Route path="/recipe/:id" element={<RecipeDetails />} />
         </Routes>
       </div>
     </Router>
