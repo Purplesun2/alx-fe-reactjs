@@ -17,16 +17,16 @@ function Contact() {
   };
 
   return (
-    <div style={{ padding: '20px', textAlign: 'center', color: '#333' }}>
+    <div style={{ padding: '20px' }}>
       <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: '0 auto' }}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
           placeholder="Your Name"
           value={formData.name}
           onChange={handleChange}
-          style={{ width: '100%', padding: '10px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
+          style={{ display: 'block', margin: '10px 0' }}
         />
         <input
           type="email"
@@ -34,16 +34,16 @@ function Contact() {
           placeholder="Your Email"
           value={formData.email}
           onChange={handleChange}
-          style={{ width: '100%', padding: '10px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
+          style={{ display: 'block', margin: '10px 0' }}
         />
         <textarea
           name="message"
           placeholder="Your Message"
           value={formData.message}
           onChange={handleChange}
-          style={{ width: '100%', padding: '10px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc', height: '100px' }}
+          style={{ display: 'block', margin: '10px 0' }}
         />
-        <button type="submit" style={{ padding: '10px 20px', borderRadius: '5px', border: 'none', backgroundColor: '#007bff', color: '#fff' }}>Send Message</button>
+        <button type="submit">Send Message</button>
       </form>
     </div>
   );
