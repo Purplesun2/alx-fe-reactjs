@@ -37,7 +37,7 @@ function RegistrationForm() {
           type="email"
           name="email"
           placeholder="Email"
-          value={formData.email} // Ensure value is correctly set
+          value="email"
           onChange={handleChange}
           style={{ display: 'block', margin: '10px 0' }}
         />
@@ -45,7 +45,7 @@ function RegistrationForm() {
           type="password"
           name="password"
           placeholder="Password"
-          value={formData.password} // Ensure value is correctly set
+          value="password"
           onChange={handleChange}
           style={{ display: 'block', margin: '10px 0' }}
         />
