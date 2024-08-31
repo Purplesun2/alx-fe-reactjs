@@ -1,24 +1,18 @@
 import React, { useState } from 'react';
 
 function RegistrationForm() {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: ''
-  });
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
+  const handleUsernameChange = (e) => setUsername(e.target.value);
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted:', formData);
+    // Add form submission logic here
+    console.log('Form submitted:', { username, email, password });
   };
 
   return (
@@ -29,24 +23,24 @@ function RegistrationForm() {
           type="text"
           name="username"
           placeholder="Username"
-          value={formData.username} // Use formData.username here
-          onChange={handleChange}
+          value={username}
+          onChange={handleUsernameChange}
           style={{ display: 'block', margin: '10px 0' }}
         />
         <input
           type="email"
           name="email"
           placeholder="Email"
-          value={formData.email} // Use formData.email here
-          onChange={handleChange}
+          value={email}
+          onChange={handleEmailChange}
           style={{ display: 'block', margin: '10px 0' }}
         />
         <input
           type="password"
           name="password"
           placeholder="Password"
-          value={formData.password} // Use formData.password here
-          onChange={handleChange}
+          value={password}
+          onChange={handlePasswordChange}
           style={{ display: 'block', margin: '10px 0' }}
         />
         <button type="submit">Register</button>
