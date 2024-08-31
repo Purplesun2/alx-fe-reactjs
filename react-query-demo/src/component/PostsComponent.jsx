@@ -2,11 +2,13 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
+// Function to fetch posts
 const fetchPosts = async () => {
   const { data } = await axios.get('https://jsonplaceholder.typicode.com/posts');
   return data;
 };
 
+// PostsComponent definition
 function PostsComponent() {
   const { data, error, isLoading, refetch } = useQuery('posts', fetchPosts);
 
