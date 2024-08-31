@@ -1,58 +1,57 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function RegistrationForm() {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
-    password: '',
+    password: ''
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Basic validation to check if any field is empty
-    if (!formData.username || !formData.email || !formData.password) {
-      alert('All fields are required!');
-      return;
-    }
-    alert('Form submitted successfully!');
-    console.log(formData);
+    // Add your form submission logic here
+    console.log('Form submitted:', formData);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Username:</label>
+    <div style={{ padding: '20px' }}>
+      <h1>Register</h1>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="username"
+          placeholder="Username"
           value={formData.username}
           onChange={handleChange}
+          style={{ display: 'block', margin: '10px 0' }}
         />
-      </div>
-      <div>
-        <label>Email:</label>
         <input
           type="email"
           name="email"
+          placeholder="Email"
           value={formData.email}
           onChange={handleChange}
+          style={{ display: 'block', margin: '10px 0' }}
         />
-      </div>
-      <div>
-        <label>Password:</label>
         <input
           type="password"
           name="password"
+          placeholder="Password"
           value={formData.password}
           onChange={handleChange}
+          style={{ display: 'block', margin: '10px 0' }}
         />
-      </div>
-      <button type="submit">Register</button>
-    </form>
+        <button type="submit">Register</button>
+      </form>
+    </div>
   );
 }
 
