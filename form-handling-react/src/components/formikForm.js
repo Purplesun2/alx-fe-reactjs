@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFormik } from 'formik';
+import { useFormik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 function FormikForm() {
@@ -23,45 +23,30 @@ function FormikForm() {
     <form onSubmit={formik.handleSubmit}>
       <div>
         <label htmlFor="username">Username</label>
-        <input
+        <Field
           id="username"
           name="username"
           type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.username}
         />
-        {formik.touched.username && formik.errors.username ? (
-          <div>{formik.errors.username}</div>
-        ) : null}
+        <ErrorMessage name="username" component="div" />
       </div>
       <div>
         <label htmlFor="email">Email</label>
-        <input
+        <Field
           id="email"
           name="email"
           type="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
         />
-        {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null}
+        <ErrorMessage name="email" component="div" />
       </div>
       <div>
         <label htmlFor="password">Password</label>
-        <input
+        <Field
           id="password"
           name="password"
           type="password"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
         />
-        {formik.touched.password && formik.errors.password ? (
-          <div>{formik.errors.password}</div>
-        ) : null}
+        <ErrorMessage name="password" component="div" />
       </div>
       <button type="submit">Register</button>
     </form>
