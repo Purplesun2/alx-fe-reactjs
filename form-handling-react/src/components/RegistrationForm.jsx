@@ -29,7 +29,7 @@ function RegistrationForm() {
           type="text"
           name="username"
           placeholder="Username"
-          value={formData.username} // Ensure value is correctly set
+          value="username"
           onChange={handleChange}
           style={{ display: 'block', margin: '10px 0' }}
         />
