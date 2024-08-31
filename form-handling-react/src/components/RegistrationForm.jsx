@@ -29,7 +29,7 @@ function RegistrationForm() {
           type="text"
           name="username"
           placeholder="Username"
-          value="username"
+          value={formData.username} // Use formData.username here
           onChange={handleChange}
           style={{ display: 'block', margin: '10px 0' }}
         />
@@ -37,7 +37,7 @@ function RegistrationForm() {
           type="email"
           name="email"
           placeholder="Email"
-          value="email"
+          value={formData.email} // Use formData.email here
           onChange={handleChange}
           style={{ display: 'block', margin: '10px 0' }}
         />
@@ -45,7 +45,7 @@ function RegistrationForm() {
           type="password"
           name="password"
           placeholder="Password"
-          value="password"
+          value={formData.password} // Use formData.password here
           onChange={handleChange}
           style={{ display: 'block', margin: '10px 0' }}
         />
