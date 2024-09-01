@@ -1,11 +1,16 @@
-// src/components/Profile.jsx
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import ProfileDetails from './ProfileDetails';
+import ProfileSettings from './ProfileSettings';
 
 function Profile() {
   return (
     <div>
-      <h1>User Profile</h1>
-      <p>Welcome to your profile page!</p>
+      <h2>Profile Page</h2>
+      <Routes>
+        <Route path="details" element={<ProfileDetails />} />
+        <Route path="settings" element={<ProfileSettings />} />
+      </Routes>
     </div>
   );
 }

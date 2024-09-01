@@ -1,23 +1,15 @@
+// src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home'; // Example component
-import BlogPost from './components/BlogPost'; // Ensure you have this component
-import Profile from './components/Profile'; // Import Profile component
-import ProtectedRoute from './components/ProtectedRoute'; // Import ProtectedRoute
+import { QueryClient, QueryClientProvider } from 'react-query';
+import PostsComponent from './components/PostsComponent'; // Ensure this component exists
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/blog/:id" element={<BlogPost />} />
-        <Route
-          path="/profile"
-          element={<ProtectedRoute element={<Profile />} />}
-        />
-        {/* Add other routes here */}
-      </Routes>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <PostsComponent />
+    </QueryClientProvider>
   );
 }
 
