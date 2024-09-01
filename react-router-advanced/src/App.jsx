@@ -1,14 +1,29 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';  // Example component
-import Profile from './components/Profile';  // Profile component with nested routes
-import BlogPost from './components/BlogPost';  // Example dynamic route component
-import ProtectedRoute from './components/ProtectedRoute';  // Protected route component
+import Home from './components/Home';
+import BlogPost from './components/BlogPost';
+import Profile from './components/Profile';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
+  const isAuthenticated = true; // Example, replace with your actual auth logic
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/profile/*" element={<ProtectedRoute isAuthenticated={true} element={<Profile />} />} />
-        <Route path="/blog/:id" element
+        <Route path="/blog/:id" element={<BlogPost />} />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;

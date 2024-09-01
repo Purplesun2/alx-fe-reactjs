@@ -1,14 +1,13 @@
 // src/hooks/useAuth.js
-import { useState, useEffect } from 'react';
 
-export function useAuth() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+import { useState } from 'react';
 
-  useEffect(() => {
-    // Simulate an authentication check
-    const authStatus = localStorage.getItem('isAuthenticated') === 'true';
-    setIsAuthenticated(authStatus);
-  }, []);
-
+function useAuth() {
+  // Simulate authentication status
+  const [isAuthenticated, setIsAuthenticated] = useState(true); // Change to false to simulate an unauthenticated user
+  
+  // Return the authentication status
   return isAuthenticated;
 }
+
+export default useAuth;
