@@ -2,14 +2,10 @@
 import React from 'react';
 
 const TodoList = () => {
-  const todos = ['Buy groceries', 'Read a book', 'Exercise'];
-
   return (
-    <ul>
-      {todos.map((todo, index) => (
-        <li key={index}>{todo}</li>
-      ))}
-    </ul>
+    <div>
+      <h1>Todo List</h1>
+    </div>
   );
 };
 
