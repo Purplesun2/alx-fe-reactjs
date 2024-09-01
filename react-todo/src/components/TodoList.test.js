@@ -1,5 +1,15 @@
-import React from 'react';  // Import React
-import { render, screen } from '@testing-library/react';
-import TodoList from './TodoList';
+import React from 'react';
 
-test('
+const TodoList = () => {
+  const todos = ['Buy groceries', 'Read a book', 'Exercise'];
+
+  return (
+    <ul>
+      {todos.map((todo, index) => (
+        <li key={index}>{todo}</li>
+      ))}
+    </ul>
+  );
+};
+
+export default TodoList;
