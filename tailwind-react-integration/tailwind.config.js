@@ -1,11 +1,14 @@
 module.exports = {
-  content: [
-    "./index.html",        // Ensures Tailwind scans index.html
-    "./src/**/*.{js,jsx}"  // Ensures Tailwind scans all files in src
+  purge: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}"
   ],
-  darkMode: 'media',  // or 'class' if you want class-based dark mode
+  darkMode: 'media', // or 'class' for class-based dark mode
   theme: {
     extend: {},
+  },
+  variants: {
+    extend: {}, // Add any additional variants you need here
   },
   plugins: [],
 };
