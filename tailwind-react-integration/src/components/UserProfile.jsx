@@ -1,4 +1,4 @@
-// src/components/UserProfile.js
+// src/components/UserProfile.jsx
 
 function UserProfile() {
   return (
