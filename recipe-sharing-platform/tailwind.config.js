@@ -1,8 +1,6 @@
 module.exports = {
-  content: [
-    './src/**/*.{js,jsx,ts,tsx}', // Include all JavaScript, TypeScript, JSX, and TSX files inside `src`
-    './public/index.html', // Include the main HTML file
-  ],
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],  // Purge unused CSS in production
+  darkMode: false,  // You can also change this to 'media' or 'class'
   theme: {
     extend: {},
   },
