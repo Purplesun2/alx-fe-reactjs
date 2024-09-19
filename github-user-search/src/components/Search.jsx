@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetchUserData } from '../services/githubApi'; // Ensure this service is correctly implemented
+import { fetchUserData } from '../services/githubApi';
 
 const Search = () => {
   const [username, setUsername] = useState('');
@@ -39,7 +39,7 @@ const Search = () => {
       {loading && <p>Loading...</p>}
 
       {/* Error state */}
-      {error && <p>Looks like we cant find the user.</p>}
+      {error && <p>Looks like we cant find the user</p>}
 
       {/* Display user data if available */}
       {userData && (
