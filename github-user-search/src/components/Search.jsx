@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetchUserData } from '../services/githubApi'; // Assuming this is in services
+import { fetchUserData } from '../services/githubApi'; // Ensure this service is correctly implemented
 
 const Search = () => {
   const [username, setUsername] = useState('');
@@ -11,7 +11,7 @@ const Search = () => {
     e.preventDefault();
     setLoading(true);
     setError(false);
-    setUserData(null);
+    setUserData(null); // Clear previous results
 
     try {
       const data = await fetchUserData(username);
@@ -35,13 +35,13 @@ const Search = () => {
         <button type="submit">Search</button>
       </form>
 
-      {/* Loading State */}
+      {/* Loading state */}
       {loading && <p>Loading...</p>}
 
-      {/* Error State */}
+      {/* Error state */}
       {error && <p>Looks like we can't find the user.</p>}
 
-      {/* Display User Data */}
+      {/* Display user data if available */}
       {userData && (
         <div>
           <img src={userData.avatar_url} alt={userData.login} width="100" />
