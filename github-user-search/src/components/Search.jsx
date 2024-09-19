@@ -1,26 +1,60 @@
 import React, { useState } from 'react';
+import { fetchUserData } from '../services/githubApi'; // Assuming this is in services
 
-const SearchBar = ({ onSearch }) => {
+const Search = () => {
   const [username, setUsername] = useState('');
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    if (username.trim()) {
-      onSearch(username);
+    setLoading(true);
+    setError(false);
+    setUserData(null);
+
+    try {
+      const data = await fetchUserData(username);
+      setUserData(data);
+    } catch (error) {
+      setError(true);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Enter GitHub username"
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div>
+      <form onSubmit={handleSearch}>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Enter GitHub username"
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      {/* Loading State */}
+      {loading && <p>Loading...</p>}
+
+      {/* Error State */}
+      {error && <p>Looks like we can't find the user.</p>}
+
+      {/* Display User Data */}
+      {userData && (
+        <div>
+          <img src={userData.avatar_url} alt={userData.login} width="100" />
+          <h2>{userData.login}</h2>
+          <p>
+            <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
+              View Profile
+            </a>
+          </p>
+        </div>
+      )}
+    </div>
   );
 };
 
-export default SearchBar;
+export default Search;
