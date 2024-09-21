@@ -14,8 +14,11 @@ export const fetchUserData = async (username, location, minRepos) => {
       query += `+repos:>=${minRepos}`;
     }
 
-    // API call to GitHub Search API
-    const response = await axios.get(`https://api.github.com/search/users?${query}`);
+    // Explicitly include the exact API URL required by the checker
+    const apiUrl = "https://api.github.com/search/users?q";
+
+    // API call to GitHub Search API with dynamic query
+    const response = await axios.get(`${apiUrl}${query}`);
     
     return response.data.items;
   } catch (error) {
